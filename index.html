@@ -1,1 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flora Raio de Sol — Floricultura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='8' fill='%23f2d1c4'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='28' fill='%237d746b'>🌸</text></svg>" />
+</head>
+<body>
 
+  <!-- ── LOADER ── -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="loader-flora">flora</span>
+        <span class="loader-brand">Raio de Sol</span>
+      </div>
+      <p class="loader-tagline">onde cada flor conta uma história</p>
+      <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+    </div>
+  </div>
+
+  <!-- ── BARRA DE PROGRESSO ── -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- ── WHATSAPP FLUTUANTE ── -->
+  <a href="https://wa.me/5519999999999?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20conhecer%20os%20arranjos%20da%20Flora%20Raio%20de%20Sol%20💐"
+     target="_blank" class="wa-float" id="waFloat" aria-label="Falar no WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#home" class="logo">
+        <span class="logo-flora">flora</span><span class="logo-brand">Raio de Sol</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home"      class="nav-link active" data-section="home">Início</a></li>
+        <li><a href="#catalogos" class="nav-link" data-section="catalogos">Catálogos</a></li>
+        <li><a href="#como"      class="nav-link" data-section="como">Como funciona</a></li>
+        <li><a href="#faq"       class="nav-link" data-section="faq">FAQ</a></li>
+        <li><a href="#sobre"     class="nav-link" data-section="sobre">Sobre</a></li>
+        <li><a href="#instagram" class="nav-link" data-section="instagram">Instagram</a></li>
+        <li><a href="#contato"   class="nav-link" data-section="contato">Contato</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home"      class="mob-link">Início</a>
+      <a href="#catalogos" class="mob-link">Catálogos</a>
+      <a href="#como"      class="mob-link">Como funciona</a>
+      <a href="#sobre"     class="mob-link">Sobre</a>
+      <a href="#instagram" class="mob-link">Instagram</a>
+      <a href="#contato"   class="mob-link">Contato</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-overlay"></div>
+      <div class="grain"></div>
+      <!-- Petals decorativos -->
+      <div class="petal petal-1">🌸</div>
+      <div class="petal petal-2">🌿</div>
+      <div class="petal petal-3">🌼</div>
+      <div class="petal petal-4">🌸</div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Floricultura Flora Raio de Sol</p>
+      <h1 class="hero-title">Tem flores que<em>falam pelo coração</em></h1>
+      <p class="hero-sub">Rosas · Buquês · Girassóis · Arranjos · Kits Especiais</p>
+      <a href="#catalogos" class="btn-hero">Ver catálogos</a>
+    </div>
+    <div class="hero-scroll">
+      <span>rolar</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── FRASE ABERTURA ── -->
+  <section class="abertura reveal-section">
+    <div class="container">
+      <div class="abertura-inner">
+        <div class="abertura-ornamento">✦</div>
+        <p class="abertura-text">
+          Presentear com flores é uma das formas mais antigas e sinceras de dizer o que as palavras, às vezes, não conseguem alcançar. É parar no meio de um dia comum e escolher a beleza — para alguém que você ama, para um momento que merece ser lembrado, para um sentimento que precisa de forma. Na Flora Raio de Sol, cada arranjo nasce com intenção: <em>que quem receber sinta, antes de tudo, que foi pensado com carinho.</em>
+        </p>
+        <div class="abertura-ornamento">✦</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CATÁLOGOS ── -->
+  <section class="catalogs" id="catalogos">
+    <div class="container">
+      <div class="section-header reveal-section">
+        <p class="eyebrow">Nossa coleção</p>
+        <div class="section-divider"><span></span></div>
+        <h2>Escolha o seu catálogo</h2>
+        <p class="section-desc">De um buquê delicado a um arranjo especial — temos a flor certa para cada sentimento.</p>
+      </div>
+
+      <div class="catalog-count reveal-section">
+        <div class="count-item">
+          <div class="count-num" data-target="6" data-suffix="">0</div>
+          <div class="count-label">categorias de flores</div>
+        </div>
+        <div class="count-item">
+          <div class="count-num" data-target="100" data-suffix="+">0</div>
+          <div class="count-label">arranjos disponíveis</div>
+        </div>
+        <div class="count-item">
+          <div class="count-num" data-target="500" data-suffix="+">0</div>
+          <div class="count-label">clientes encantados</div>
+        </div>
+      </div>
+
+      <div class="catalog-grid">
+
+        <!-- Kits Especiais -->
+        <div class="catalog-card reveal-section" style="--delay:0s">
+          <div class="card-img-wrap">
+            <div class="card-img card-kits">
+              <svg viewBox="0 0 80 80" width="52" height="52" fill="none">
+                <path d="M40 12c0 0-6-8-16-4s-10 16-4 22l20 20 20-20c6-6 6-18-4-22s-16 4-16 4z" fill="rgba(255,255,255,0.9)"/>
+                <path d="M32 48l8 8 8-8" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="card-overlay"><button class="card-btn" onclick="openCatalog('kits')">Ver arranjos</button></div>
+          </div>
+          <div class="card-info">
+            <h3>Kits Especiais</h3>
+            <p>Quando uma flor só não é suficiente</p>
+          </div>
+        </div>
+
+        <!-- Rosas -->
+        <div class="catalog-card reveal-section" style="--delay:.07s">
+          <div class="card-img-wrap">
+            <div class="card-img card-rosas">
+              <svg viewBox="0 0 80 80" width="52" height="52" fill="none">
+                <circle cx="40" cy="36" r="16" fill="rgba(255,255,255,0.85)"/>
+                <circle cx="40" cy="36" r="10" fill="rgba(242,209,196,0.7)"/>
+                <circle cx="40" cy="36" r="5"  fill="rgba(242,209,196,0.9)"/>
+                <path d="M40 52v12" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M34 58l-4 4M46 58l4 4" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="card-overlay"><button class="card-btn" onclick="openCatalog('rosas')">Ver arranjos</button></div>
+          </div>
+          <div class="card-info">
+            <h3>Rosas</h3>
+            <p>A linguagem mais antiga do amor</p>
+          </div>
+        </div>
+
+        <!-- Buquês Mistos -->
+        <div class="catalog-card reveal-section" style="--delay:.14s">
+          <div class="card-img-wrap">
+            <div class="card-img card-buques">
+              <svg viewBox="0 0 80 80" width="52" height="52" fill="none">
+                <ellipse cx="40" cy="32" rx="18" ry="14" fill="rgba(255,255,255,0.85)"/>
+                <path d="M28 42l4 16h16l4-16" fill="rgba(255,255,255,0.5)"/>
+                <circle cx="33" cy="28" r="5" fill="rgba(201,214,197,0.9)"/>
+                <circle cx="47" cy="28" r="5" fill="rgba(220,230,240,0.9)"/>
+                <circle cx="40" cy="23" r="5" fill="rgba(242,209,196,0.9)"/>
+              </svg>
+            </div>
+            <div class="card-overlay"><button class="card-btn" onclick="openCatalog('buques')">Ver arranjos</button></div>
+          </div>
+          <div class="card-info">
+            <h3>Buquês Mistos</h3>
+            <p>Alegria com muitas flores em um só abraço</p>
+          </div>
+        </div>
+
+        <!-- Girassóis -->
+        <div class="catalog-card reveal-section" style="--delay:.21s">
+          <div class="card-img-wrap">
+            <div class="card-img card-girassois">
+              <svg viewBox="0 0 80 80" width="52" height="52" fill="none">
+                <circle cx="40" cy="34" r="10" fill="rgba(255,255,255,0.9)"/>
+                <circle cx="40" cy="34" r="6"  fill="rgba(125,116,107,0.5)"/>
+                <g stroke="rgba(255,255,255,0.75)" stroke-width="5" stroke-linecap="round">
+                  <line x1="40" y1="14" x2="40" y2="20"/>
+                  <line x1="40" y1="48" x2="40" y2="54"/>
+                  <line x1="20" y1="34" x2="26" y2="34"/>
+                  <line x1="54" y1="34" x2="60" y2="34"/>
+                  <line x1="26" y1="20" x2="30" y2="24"/>
+                  <line x1="50" y1="44" x2="54" y2="48"/>
+                  <line x1="54" y1="20" x2="50" y2="24"/>
+                  <line x1="30" y1="44" x2="26" y2="48"/>
+                </g>
+                <path d="M40 54v14" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="card-overlay"><button class="card-btn" onclick="openCatalog('girassois')">Ver arranjos</button></div>
+          </div>
+          <div class="card-info">
+            <h3>Girassóis</h3>
+            <p>Luz, alegria e aquele calor especial</p>
+          </div>
+        </div>
+
+        <!-- Arranjos -->
+        <div class="catalog-card reveal-section" style="--delay:.28s">
+          <div class="card-img-wrap">
+            <div class="card-img card-arranjos">
+              <svg viewBox="0 0 80 80" width="52" height="52" fill="none">
+                <path d="M18 60h44" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
+                <rect x="30" y="48" width="20" height="14" rx="2" fill="rgba(255,255,255,0.5)"/>
+                <ellipse cx="40" cy="36" rx="16" ry="14" fill="rgba(255,255,255,0.85)"/>
+                <circle cx="34" cy="34" r="5" fill="rgba(201,214,197,0.8)"/>
+                <circle cx="46" cy="34" r="5" fill="rgba(242,209,196,0.8)"/>
+                <circle cx="40" cy="28" r="5" fill="rgba(234,216,162,0.8)"/>
+              </svg>
+            </div>
+            <div class="card-overlay"><button class="card-btn" onclick="openCatalog('arranjos')">Ver arranjos</button></div>
+          </div>
+          <div class="card-info">
+            <h3>Arranjos</h3>
+            <p>Composições que encantam qualquer ambiente</p>
+          </div>
+        </div>
+
+        <!-- Mini Arranjos -->
+        <div class="catalog-card reveal-section" style="--delay:.35s">
+          <div class="card-img-wrap">
+            <div class="card-img card-mini">
+              <svg viewBox="0 0 80 80" width="52" height="52" fill="none">
+                <rect x="28" y="50" width="24" height="16" rx="3" fill="rgba(255,255,255,0.5)"/>
+                <circle cx="35" cy="42" r="8" fill="rgba(255,255,255,0.85)"/>
+                <circle cx="45" cy="40" r="7" fill="rgba(242,209,196,0.75)"/>
+                <circle cx="38" cy="33" r="6" fill="rgba(201,214,197,0.8)"/>
+              </svg>
+            </div>
+            <div class="card-overlay"><button class="card-btn" onclick="openCatalog('mini')">Ver arranjos</button></div>
+          </div>
+          <div class="card-info">
+            <h3>Mini Arranjos & Solitários</h3>
+            <p>Pequenos gestos com grande significado</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAIXA DE FOTOS ── -->
+  <section class="photo-strip" id="photoStrip">
+    <div class="strip-label"><span class="strip-eyebrow">momentos floridos</span></div>
+    <div class="strip-track" id="stripTrack"></div>
+  </section>
+
+  <!-- ── COMO FUNCIONA ── -->
+  <section class="como" id="como">
+    <div class="container">
+      <div class="section-header reveal-section">
+        <p class="eyebrow">Simples e encantador</p>
+        <div class="section-divider"><span></span></div>
+        <h2>Como funciona</h2>
+        <p class="section-desc">Do escolher ao receber — tudo pensado para ser fácil e cheio de amor.</p>
+      </div>
+      <div class="como-grid">
+        <div class="como-step reveal-section" style="--delay:0s">
+          <div class="step-number">01</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 48 48" width="32" height="32" fill="none">
+              <path d="M8 36V14a4 4 0 014-4h24a4 4 0 014 4v16a4 4 0 01-4 4H14l-6 6z" stroke="#a9b3a1" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M16 20h16M16 26h10" stroke="#a9b3a1" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Escolha seu arranjo</h3>
+          <p>Navegue pelos catálogos e encontre as flores que combinam com o que você quer dizer.</p>
+        </div>
+        <div class="como-step reveal-section" style="--delay:.1s">
+          <div class="step-number">02</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 48 48" width="32" height="32" fill="none">
+              <path d="M12 24c0 0 4 8 12 8s12-8 12-8" stroke="#a9b3a1" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="24" cy="20" r="8" stroke="#a9b3a1" stroke-width="1.5"/>
+              <path d="M24 8v4M24 32v4M8 20h4M36 20h4" stroke="#a9b3a1" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Fale com a gente</h3>
+          <p>Nos chame no WhatsApp e personalize tudo — cores, tamanho, mensagem no cartão.</p>
+        </div>
+        <div class="como-step reveal-section" style="--delay:.2s">
+          <div class="step-number">03</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 48 48" width="32" height="32" fill="none">
+              <path d="M24 8c0 0-8 4-8 14s8 14 8 14 8-4 8-14S24 8 24 8z" stroke="#a9b3a1" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M16 22h16" stroke="#a9b3a1" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M24 36v6M16 40l8-4 8 4" stroke="#a9b3a1" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Montamos com amor</h3>
+          <p>Cada arranjo é preparado com flores frescas e cuidado artesanal para o seu presente.</p>
+        </div>
+        <div class="como-step reveal-section" style="--delay:.3s">
+          <div class="step-number">04</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 48 48" width="32" height="32" fill="none">
+              <path d="M8 24l10 10 22-20" stroke="#a9b3a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Entrega encantada</h3>
+          <p>Entregamos com todo o cuidado que o seu presente merece — com ou sem cartão personalizado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SOBRE ── -->
+  <section class="sobre" id="sobre">
+    <div class="container sobre-inner">
+      <div class="sobre-img-wrap reveal-section">
+        <div class="sobre-img-real">
+          <div class="sobre-img-placeholder">
+            <svg viewBox="0 0 80 80" width="64" height="64" fill="none">
+              <circle cx="40" cy="30" r="20" fill="rgba(201,214,197,0.4)"/>
+              <path d="M40 10c0 0-10 8-10 20s10 20 10 20 10-8 10-20S40 10 40 10z" fill="rgba(242,209,196,0.5)"/>
+            </svg>
+            <span class="img-hint">foto da floricultura</span>
+          </div>
+        </div>
+        <div class="sobre-badge">flores com alma ✦</div>
+      </div>
+      <div class="sobre-text reveal-section" style="--delay:.15s">
+        <p class="eyebrow">Quem somos</p>
+        <div class="section-divider" style="justify-content:flex-start;margin-bottom:1rem;"><span></span></div>
+        <h2>Nascemos do amor pelas flores</h2>
+        <p>A Flora Raio de Sol surgiu de um sonho simples: criar um espaço onde beleza e afeto se encontram. Aqui, cada arranjo é feito à mão, com flores selecionadas com carinho e atenção aos detalhes que fazem a diferença.</p>
+        <p>Acreditamos que uma flor tem o poder de transformar um dia comum em algo especial. Por isso, trabalhamos com dedicação para que cada pedido chegue ao destino com toda a emoção que você colocou ao escolhê-lo.</p>
+        <div class="sobre-diferenciais">
+          <div class="dif-item">
+            <div class="dif-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="dif-label">Flores frescas diariamente</span>
+          </div>
+          <div class="dif-item">
+            <div class="dif-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="dif-label">Personalização gratuita</span>
+          </div>
+          <div class="dif-item">
+            <div class="dif-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="dif-label">Cartão com mensagem incluso</span>
+          </div>
+          <div class="dif-item">
+            <div class="dif-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="dif-label">Entrega com cuidado</span>
+          </div>
+        </div>
+        <a href="#contato" class="btn-outline">Fale conosco</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header reveal-section">
+        <p class="eyebrow">Tire suas dúvidas</p>
+        <div class="section-divider"><span></span></div>
+        <h2>Perguntas frequentes</h2>
+      </div>
+      <div class="faq-list reveal-section">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Vocês fazem entrega?</span>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! Fazemos entregas na cidade e região. O prazo e o valor do frete são combinados no momento do pedido, de acordo com o endereço de entrega. Trabalhamos para que o seu presente chegue com toda a frescura e cuidado que ele merece.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Posso personalizar o arranjo?</span>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Claro! A personalização é parte do nosso charme. Você pode escolher cores, flores preferidas, estilo da embalagem e ainda incluir um cartão com a mensagem que quiser. É só nos chamar no WhatsApp e a gente cria junto com você.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Com quanto tempo de antecedência devo pedir?</span>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Para pedidos simples, pedimos no mínimo 24 horas de antecedência. Para kits especiais, datas comemorativas ou arranjos maiores, recomendamos 2 a 3 dias. Mas pode nos chamar — fazemos o possível para atender com carinho!</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>As flores são frescas?</span>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Sempre. Trabalhamos com flores frescas, selecionadas com cuidado. Cada arranjo é montado perto do momento da entrega para garantir que chegue viçoso e perfumado como deve ser.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Quais são as formas de pagamento?</span>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Aceitamos PIX, transferência bancária e cartão de crédito. O pagamento é combinado no momento do pedido. Para facilitar, nosso WhatsApp está sempre disponível para tirar qualquer dúvida.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTATO ── -->
+  <section class="contato" id="contato">
+    <div class="container">
+      <div class="section-header light reveal-section">
+        <p class="eyebrow">Vamos conversar</p>
+        <div class="section-divider" style="margin-bottom:1.25rem;"><span style="background:var(--sage-light);"></span></div>
+        <h2 style="color:#fff;">Peça o seu arranjo</h2>
+        <p class="section-desc" style="color:rgba(255,255,255,0.55);">Escolheu um catálogo? Quer um arranjo especial? A gente adoraria ajudar você a encontrar a flor certa para cada momento.</p>
+      </div>
+      <div class="contato-grid">
+        <div class="contato-info reveal-section">
+          <div class="info-item">
+            <a href="https://wa.me/5519999999999" target="_blank" class="info-icon info-icon--wa info-icon--btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <div><p class="info-label">WhatsApp</p><a href="https://wa.me/5519999999999" target="_blank" class="info-val">(19) 99999-9999</a></div>
+          </div>
+          <div class="info-item">
+            <a href="mailto:contato@floraraiodosol.com.br" class="info-icon info-icon--mail info-icon--btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+            <div><p class="info-label">E-mail</p><a href="mailto:contato@floraraiodosol.com.br" class="info-val">contato@floraraiodosol.com.br</a></div>
+          </div>
+          <div class="info-item">
+            <a href="https://instagram.com/floraraiodosol" target="_blank" class="info-icon info-icon--ig info-icon--btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <div><p class="info-label">Instagram</p><a href="https://instagram.com/floraraiodosol" target="_blank" class="info-val">@floraraiodosol</a></div>
+          </div>
+          <a href="https://wa.me/5519999999999?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20pedir%20um%20arranjo%20especial%20💐" target="_blank" class="btn-whatsapp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Pedir no WhatsApp
+          </a>
+          <div class="brand-assinatura">
+            <p>✦ onde há flores, há amor</p>
+          </div>
+        </div>
+        <form class="contato-form reveal-section" id="contactForm" style="--delay:.15s">
+          <div class="form-row">
+            <div class="form-group"><label for="nome">Seu nome</label><input type="text" id="nome" placeholder="Como podemos chamar você?" required /></div>
+            <div class="form-group"><label for="tel">Telefone / WhatsApp</label><input type="tel" id="tel" placeholder="(19) 99999-9999" /></div>
+          </div>
+          <div class="form-group">
+            <label for="evento">Qual ocasião?</label>
+            <select id="evento">
+              <option value="">Selecione a ocasião...</option>
+              <option value="kits">Kit Especial</option>
+              <option value="rosas">Rosas</option>
+              <option value="buques">Buquê Misto</option>
+              <option value="girassois">Girassóis</option>
+              <option value="arranjos">Arranjo</option>
+              <option value="mini">Mini Arranjo / Solitário</option>
+              <option value="aniversario">Aniversário</option>
+              <option value="casamento">Casamento</option>
+              <option value="namorados">Dia dos Namorados</option>
+              <option value="maes">Dia das Mães</option>
+              <option value="outro">Outra ocasião</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="mensagem">Mensagem</label><textarea id="mensagem" rows="4" placeholder="Conta pra gente o que você tem em mente... qual sentimento quer expressar? 🌸"></textarea></div>
+          <button type="submit" class="btn-submit">Enviar mensagem</button>
+          <p class="form-success" id="formSuccess">✦ Mensagem enviada com amor! Retornaremos em breve.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INSTAGRAM ── -->
+  <section class="instagram" id="instagram">
+    <div class="container">
+      <div class="section-header reveal-section">
+        <p class="eyebrow">Siga no Instagram</p>
+        <div class="section-divider"><span></span></div>
+        <h2>@floraraiodosol</h2>
+        <p class="section-desc">Flores frescas todos os dias — acompanhe os arranjos mais recentes.</p>
+      </div>
+      <div class="ig-grid reveal-section" id="igGrid">
+        <div class="ig-placeholder"></div>
+        <div class="ig-placeholder"></div>
+        <div class="ig-placeholder"></div>
+        <div class="ig-placeholder"></div>
+        <div class="ig-placeholder"></div>
+        <div class="ig-placeholder"></div>
+        <div class="ig-placeholder"></div>
+        <div class="ig-placeholder"></div>
+        <div class="ig-placeholder"></div>
+      </div>
+      <div class="ig-cta reveal-section">
+        <a href="https://instagram.com/floraraiodosol" target="_blank" class="btn-ig">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          Ver perfil completo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#home" class="logo logo--footer">
+        <span class="logo-flora">flora</span><span class="logo-brand">Raio de Sol</span>
+      </a>
+      <p class="footer-copy">© Flora Raio de Sol · Onde há flores, há amor ✦</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/floraraiodosol" target="_blank" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://wa.me/5519999999999" target="_blank" aria-label="WhatsApp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── MODAL ── -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <div><h3 id="modalTitle">Catálogo</h3><p id="modalDesc" class="modal-desc"></p></div>
+        <button class="modal-close" id="modalClose" aria-label="Fechar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-loading" id="modalLoading"><div class="spinner"></div><p>Carregando arranjos...</p></div>
+      <div class="modal-grid" id="modalGrid"></div>
+      <div class="modal-empty" id="modalEmpty" style="display:none"><p>Nenhum arranjo encontrado nesta categoria.</p></div>
+      <div class="modal-lightbox" id="lightbox">
+        <button class="lb-close" id="lbClose">×</button>
+        <button class="lb-prev" id="lbPrev">‹</button>
+        <img src="" alt="" id="lbImg" />
+        <button class="lb-next" id="lbNext">›</button>
+        <p class="lb-counter" id="lbCounter"></p>
+        <p class="lb-swipe-hint">deslize para navegar</p>
+        <p class="lb-caption" id="lbCaption"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
