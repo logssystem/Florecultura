@@ -46,7 +46,7 @@ img { max-width: 100%; display: block; }
 
 /* ── LOGO ── */
 .logo { display: flex; align-items: baseline; gap: 0.18em; flex-shrink: 0; }
-.logo-flora { font-family: 'Jost', sans-serif; font-weight: 200; font-size: 0.88rem; letter-spacing: 0.32em; text-transform: lowercase; transition: color 0.4s ease; }
+.logo-flora { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 0.88rem; letter-spacing: 0.32em; text-transform: lowercase; transition: color 0.4s ease; }
 .logo-brand { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.55rem; transition: color 0.4s ease; line-height: 1; }
 .nav:not(.scrolled) .logo-flora { color: rgba(58,46,40,0.75); }
 .nav:not(.scrolled) .logo-brand { color: #3a2e28; }
