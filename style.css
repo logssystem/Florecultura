@@ -108,8 +108,10 @@ img { max-width: 100%; display: block; }
   font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.55rem;
   transition: color 0.4s ease; line-height: 1;
 }
-.nav:not(.scrolled) .logo-flora { color: rgba(58,46,40,0.5); }
-.nav:not(.scrolled) .logo-brand { color: var(--taupe); }
+/* HERO: logo mais clara */
+.nav:not(.scrolled) .logo-flora { color: rgba(58,46,40,0.22); }
+.nav:not(.scrolled) .logo-brand { color: rgba(125,116,107,0.38); }
+/* Após scroll: mantém legível */
 .nav.scrolled .logo-flora { color: rgba(58,46,40,0.45); }
 .nav.scrolled .logo-brand { color: var(--taupe); }
 .logo--footer .logo-flora { color: rgba(255,255,255,0.35); }
@@ -128,11 +130,13 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 1px 0 rgba(125,116,107,0.1), 0 4px 24px rgba(58,46,40,0.05);
 }
-.nav:not(.scrolled) .nav-link   { color: rgba(58,46,40,0.55); }
+/* HERO: nav links mais claros */
+.nav:not(.scrolled) .nav-link   { color: rgba(58,46,40,0.25); }
 .nav:not(.scrolled) .nav-link::after { background: var(--taupe); }
 .nav:not(.scrolled) .nav-link:hover,
-.nav:not(.scrolled) .nav-link.active { color: var(--taupe); }
-.nav:not(.scrolled) .hamburger span  { background: var(--taupe); }
+.nav:not(.scrolled) .nav-link.active { color: rgba(125,116,107,0.6); }
+.nav:not(.scrolled) .hamburger span  { background: rgba(125,116,107,0.3); }
+/* Após scroll: legível */
 .nav.scrolled .nav-link   { color: var(--muted); }
 .nav.scrolled .nav-link::after { background: var(--taupe); }
 .nav.scrolled .nav-link:hover,
@@ -157,7 +161,7 @@ img { max-width: 100%; display: block; }
 .hamburger span { display: block; width: 22px; height: 1.5px; transition: all 0.35s ease; }
 
 /* ══════════════════════════════════════
-   HERO — delicado, claro, floral
+   HERO
 ══════════════════════════════════════ */
 .hero {
   position: relative; height: 100vh; min-height: 620px;
@@ -183,17 +187,18 @@ img { max-width: 100%; display: block; }
 }
 @keyframes grain { 0%{transform:translate(0,0)} 25%{transform:translate(-5%,-5%)} 50%{transform:translate(5%,0)} 75%{transform:translate(0,5%)} }
 
+/* PÉTALAS: muito mais suaves */
 .petal {
   position: absolute; pointer-events: none;
-  animation: floatPetal 14s ease-in-out infinite; opacity: 0.2;
+  animation: floatPetal 14s ease-in-out infinite; opacity: 0.06;
 }
 .petal-1 { top: 12%; left: 7%;  font-size: 2.4rem; animation-delay: 0s;   animation-duration: 16s; }
 .petal-2 { top: 68%; left: 4%;  font-size: 1.6rem; animation-delay: 3s;   animation-duration: 12s; }
 .petal-3 { top: 18%; right: 7%; font-size: 1.8rem; animation-delay: 1.5s; animation-duration: 18s; }
 .petal-4 { top: 72%; right: 5%; font-size: 2.2rem; animation-delay: 5s;   animation-duration: 14s; }
 @keyframes floatPetal {
-  0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
-  50%      { transform: translateY(-28px) rotate(12deg); opacity: 0.35; }
+  0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.06; }
+  50%      { transform: translateY(-28px) rotate(12deg); opacity: 0.11; }
 }
 .hero::before {
   content: ''; position: absolute;
@@ -211,14 +216,15 @@ img { max-width: 100%; display: block; }
 }
 @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
 
+/* EYEBROW: mais claro */
 .hero-eyebrow {
   font-size: 0.64rem; font-weight: 300; letter-spacing: 0.38em; text-transform: uppercase;
-  color: var(--moss); margin-bottom: 1.75rem;
+  color: rgba(169,179,161,0.45); margin-bottom: 1.75rem;
   display: flex; align-items: center; justify-content: center; gap: 0.75rem;
 }
 .hero-eyebrow::before, .hero-eyebrow::after {
   content: ''; display: inline-block; width: 28px; height: 1px;
-  background: var(--moss); opacity: 0.45;
+  background: var(--moss); opacity: 0.25;
 }
 .hero-title {
   font-family: 'Playfair Display', serif;
@@ -232,16 +238,18 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(135deg, #8a7a6e 0%, #b8a090 50%, #9a8878 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
+/* SUBTÍTULO: mais claro */
 .hero-sub {
   font-size: 0.67rem; font-weight: 300; letter-spacing: 0.24em;
-  color: rgba(58,46,40,0.38); margin-bottom: 3rem; text-transform: uppercase;
+  color: rgba(58,46,40,0.18); margin-bottom: 3rem; text-transform: uppercase;
 }
+/* BOTÃO VER CATÁLOGOS: mais claro */
 .btn-hero {
   display: inline-block; padding: 1rem 3rem;
-  border: 1px solid rgba(125,116,107,0.35); color: var(--taupe);
+  border: 1px solid rgba(125,116,107,0.18); color: rgba(125,116,107,0.38);
   font-size: 0.72rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase;
   transition: all 0.4s ease; position: relative; overflow: hidden;
-  background: rgba(255,255,255,0.5); backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.35); backdrop-filter: blur(8px);
 }
 .btn-hero::before {
   content: ''; position: absolute; inset: 0; background: var(--taupe);
@@ -249,17 +257,18 @@ img { max-width: 100%; display: block; }
 }
 .btn-hero:hover { color: #fff; border-color: var(--taupe); }
 .btn-hero:hover::before { transform: scaleX(1); }
+/* SCROLL ROLAR: mais claro */
 .hero-scroll {
   position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-  color: rgba(58,46,40,0.28); font-size: 0.59rem; letter-spacing: 0.24em; text-transform: uppercase;
+  color: rgba(58,46,40,0.14); font-size: 0.59rem; letter-spacing: 0.24em; text-transform: uppercase;
 }
 .scroll-line {
   width: 1px; height: 44px;
-  background: linear-gradient(to bottom, rgba(125,116,107,0.35), transparent);
+  background: linear-gradient(to bottom, rgba(125,116,107,0.15), transparent);
   animation: pulse 2.5s ease infinite;
 }
-@keyframes pulse { 0%,100%{opacity:0.3} 50%{opacity:0.9} }
+@keyframes pulse { 0%,100%{opacity:0.2} 50%{opacity:0.6} }
 
 /* ══════════════════════════════════════
    ABERTURA
@@ -345,7 +354,7 @@ img { max-width: 100%; display: block; }
 .card-info p { font-size: 0.83rem; color: var(--muted); font-style: italic; line-height: 1.5; }
 
 /* ══════════════════════════════════════
-   FAIXA DE FOTOS — Verde Sálvia
+   FAIXA DE FOTOS
 ══════════════════════════════════════ */
 .photo-strip { background: var(--sage); overflow: hidden; padding: 0; }
 .strip-label { text-align: center; padding: 2.25rem 0 1.25rem; }
@@ -365,7 +374,7 @@ img { max-width: 100%; display: block; }
 .strip-photo:hover .strip-photo-label { opacity: 1; }
 
 /* ══════════════════════════════════════
-   COMO FUNCIONA — Azul Névoa
+   COMO FUNCIONA
 ══════════════════════════════════════ */
 .como { padding: 7rem 0; background: var(--mist); }
 .como .section-header .eyebrow { color: var(--moss); }
@@ -397,7 +406,7 @@ img { max-width: 100%; display: block; }
 .como-step p { font-size: 0.86rem; color: var(--muted); line-height: 1.8; position: relative; z-index: 1; }
 
 /* ══════════════════════════════════════
-   SOBRE — Pêssego Claro
+   SOBRE
 ══════════════════════════════════════ */
 .sobre { padding: 7rem 0; background: var(--peach); }
 .sobre-inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: center; }
@@ -430,7 +439,7 @@ img { max-width: 100%; display: block; }
 .btn-outline:hover { background: var(--taupe); color: var(--white); }
 
 /* ══════════════════════════════════════
-   FAQ — Amarelo Mel Suave
+   FAQ
 ══════════════════════════════════════ */
 .faq { padding: 6rem 0; background: var(--honey); }
 .faq .section-header .eyebrow { color: var(--moss); }
@@ -450,7 +459,7 @@ img { max-width: 100%; display: block; }
 .faq-answer p { font-size: 0.95rem; color: var(--muted); line-height: 1.85; padding-bottom: 1.25rem; }
 
 /* ══════════════════════════════════════
-   CONTATO — Verde Sálvia
+   CONTATO
 ══════════════════════════════════════ */
 .contato { padding: 7rem 0; background: var(--sage); }
 .contato .section-header .eyebrow { color: var(--taupe); }
@@ -495,7 +504,7 @@ img { max-width: 100%; display: block; }
 .form-success.show { display: block; }
 
 /* ══════════════════════════════════════
-   INSTAGRAM — Creme Floral
+   INSTAGRAM
 ══════════════════════════════════════ */
 .instagram { padding: 6rem 0; background: var(--cream); }
 .ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 2.5rem; }
@@ -511,7 +520,7 @@ img { max-width: 100%; display: block; }
 .btn-ig:hover { background: var(--taupe); color: var(--white); }
 
 /* ══════════════════════════════════════
-   FOOTER — Taupe
+   FOOTER
 ══════════════════════════════════════ */
 .footer { padding: 2.5rem 0; background: var(--taupe); }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
