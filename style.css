@@ -187,7 +187,7 @@ img { max-width: 100%; display: block; }
 .strip-track:hover { animation-play-state: paused; }
 @keyframes stripMove { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 .strip-photo { width: 240px; height: 180px; flex-shrink: 0; overflow: hidden; border-radius: 4px; cursor: pointer; position: relative; }
-.strip-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease, filter 0.5s ease; filter: brightness(0.88) saturate(0.9); }
+.strip-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.5s ease, filter 0.5s ease; filter: brightness(0.88) saturate(0.9); }
 .strip-photo:hover img { transform: scale(1.06); filter: brightness(1) saturate(1.1); }
 .strip-photo-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(58,46,40,0.6), transparent); color: rgba(255,255,255,0.9); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 1rem 0.75rem 0.5rem; opacity: 0; transition: opacity 0.3s; }
 .strip-photo:hover .strip-photo-label { opacity: 1; }
@@ -307,9 +307,9 @@ img { max-width: 100%; display: block; }
 .spinner { width: 32px; height: 32px; border: 1.5px solid rgba(125,116,107,0.15); border-top-color: var(--moss); border-radius: 50%; animation: spin 0.9s linear infinite; }
 @keyframes spin { to{transform:rotate(360deg)} }
 .modal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; padding: 1.5rem 2rem 2rem; }
-.modal-photo { aspect-ratio: 1; overflow: hidden; border-radius: 4px; cursor: pointer; background: var(--peach); transition: transform 0.3s; }
+.modal-photo { aspect-ratio: 1; overflow: hidden; border-radius: 4px; cursor: pointer; background: var(--peach); transition: transform 0.3s; position: relative; }
 .modal-photo:hover { transform: scale(1.02); }
-.modal-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.modal-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.5s; }
 .modal-photo:hover img { transform: scale(1.06); }
 .modal-empty { padding: 3rem 2rem; text-align: center; color: var(--muted); font-style: italic; font-family: 'Playfair Display', serif; }
 .modal-lightbox { display: none; position: fixed; inset: 0; background: rgba(58,46,40,0.97); z-index: 3000; align-items: center; justify-content: center; }
