@@ -79,7 +79,7 @@ img { max-width: 100%; display: block; }
 /* ── HERO ── */
 .hero { position: relative; height: 100vh; min-height: 620px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .hero-bg {
-  position: absolute; inset: 0;
+  position: absolute; inset: 0; will-change: transform;
   background:
     radial-gradient(ellipse at 15% 55%, rgba(234,216,162,0.38) 0%, transparent 52%),
     radial-gradient(ellipse at 82% 25%, rgba(201,214,197,0.42) 0%, transparent 48%),
@@ -161,7 +161,7 @@ img { max-width: 100%; display: block; }
 .count-num { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 300; color: var(--taupe); line-height: 1; }
 .count-label { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-top: 0.35rem; }
 .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
-.catalog-card { border-radius: 6px; overflow: hidden; cursor: pointer; transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.45s; box-shadow: 0 2px 16px rgba(125,116,107,0.1); background: var(--white); }
+.catalog-card { border-radius: 6px; overflow: hidden; cursor: pointer; transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.45s; box-shadow: 0 2px 16px rgba(125,116,107,0.1); background: var(--white); will-change: transform; }
 .catalog-card:hover { transform: translateY(-8px); box-shadow: 0 24px 52px rgba(125,116,107,0.18); }
 .card-img-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; }
 .card-img { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; transition: transform 0.6s ease; }
@@ -183,7 +183,7 @@ img { max-width: 100%; display: block; }
 .photo-strip { background: var(--sage); overflow: hidden; padding: 0; }
 .strip-label { text-align: center; padding: 2.25rem 0 1.25rem; }
 .strip-eyebrow { font-size: 0.62rem; font-weight: 300; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(58,46,40,0.45); }
-.strip-track { display: flex; gap: 0.75rem; width: max-content; animation: stripMove 46s linear infinite; padding-bottom: 2.25rem; }
+.strip-track { display: flex; gap: 0.75rem; width: max-content; animation: stripMove 46s linear infinite; padding-bottom: 2.25rem; will-change: transform; }
 .strip-track:hover { animation-play-state: paused; }
 @keyframes stripMove { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 .strip-photo { width: 240px; height: 180px; flex-shrink: 0; overflow: hidden; border-radius: 4px; cursor: pointer; position: relative; }
@@ -363,7 +363,8 @@ img { max-width: 100%; display: block; }
   .hero-eyebrow::before, .hero-eyebrow::after { width: 16px; }
   .catalogs, .sobre, .contato, .como, .faq, .instagram, .abertura { padding: 4rem 0; }
   .container { padding: 0 1.25rem; }
-  .catalog-grid { grid-template-columns: 1fr; gap: 1rem; }
+  /* MOBILE: 2 colunas nos catálogos */
+  .catalog-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
   .catalog-count { gap: 2rem; }
   .como-grid { grid-template-columns: 1fr; }
   .sobre-diferenciais { grid-template-columns: 1fr; }
@@ -375,5 +376,38 @@ img { max-width: 100%; display: block; }
   .footer-inner { flex-direction: column; text-align: center; gap: 1.25rem; }
   .modal-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; padding: 1rem; }
   .modal-header { padding: 1.25rem 1rem; }
-  .wa-float { bottom: 1.25rem; right: 1.25rem; width: 52px; height: 52px; }
+  /* MOBILE: WhatsApp maior e mais fácil de tocar */
+  .wa-float { bottom: 1.5rem; right: 1.25rem; width: 62px; height: 62px; }
+  /* MOBILE: links do menu com área de toque maior */
+  .mob-link { padding: 0.9rem 0; min-height: 48px; display: flex; align-items: center; justify-content: center; }
+}
+
+/* ACESSIBILIDADE: focus-visible em todos os elementos interativos */
+.btn-hero:focus-visible,
+.btn-outline:focus-visible,
+.btn-submit:focus-visible,
+.btn-whatsapp:focus-visible,
+.btn-ig:focus-visible,
+.card-btn:focus-visible,
+.modal-close:focus-visible,
+.lb-close:focus-visible,
+.lb-prev:focus-visible,
+.lb-next:focus-visible,
+.faq-question:focus-visible,
+.nav-link:focus-visible,
+.mob-link:focus-visible,
+.wa-float:focus-visible {
+  outline: 2px solid var(--taupe);
+  outline-offset: 3px;
+}
+
+/* MOBILE: animação de entrada dos links do menu */
+.mobile-menu.open .mob-link {
+  animation: mobLinkIn 0.35s ease forwards;
+  animation-delay: calc(var(--i, 0) * 0.07s);
+  opacity: 0;
+}
+@keyframes mobLinkIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
